@@ -1,6 +1,7 @@
 import unittest
  
-from tests.task_test import TestTask
+from tests.item_test import TestItem
+from tests.manufacturer_test import TestManufacturer
  
  
 if __name__ == '__main__':

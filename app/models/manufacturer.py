@@ -4,3 +4,6 @@ class Manufacturer:
         self.description = description
         self.category = category
         self.active = active
+
+    def make_inactive(self):
+        self.active = False
