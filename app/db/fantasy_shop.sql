@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS items;
-DROP TABLE IF EXISTS manufacturer;
+DROP TABLE IF EXISTS manufacturers;
+
 
 CREATE TABLE manufacturers (
     id SERIAL PRIMARY KEY,
@@ -14,9 +15,9 @@ CREATE TABLE items (
     NAME VARCHAR(255),
     description TEXT,
     category VARCHAR(255),
-    stock INT,
     buy_cost INT,
     sell_price INT,
-    manufacturer_id INT REFERENCES manufacturer(id),
+    manufacturer_id INT REFERENCES manufacturers(id),
+    stock INT,
     sold_out BOOLEAN
 );
