@@ -15,6 +15,7 @@ In order to run this file:
         "createdb fantasy_shop",
         "psql -d fantasy_shop -f fantasy_shop.sql",
         "python3 console.py" (if you would like to seed the database with example data),
+        copy and paste "FLASK_APP=app.py FLANK_ENV=development" into a file named "flaskenv" within the app folder,
         "flask run"
 
 -----------------------------------------------------------------------------

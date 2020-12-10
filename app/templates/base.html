@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>The Fantastic Fantasy Inventory Management Software</title>
+</head>
+<body>
+    <header>
+        <h1>The Fantastic Fantasy Inventory Management Software<sup>TM</sup></h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>
+                    Inventory
+                    <ul>
+                        <li><a href="/items">View All</a></li>
+                        <li><a href="/items/new">Add A New Item</a></li>
+                    </ul>
+                </li>
+                <li>
+                    Manufacurers
+                    <ul>
+                        <li><a href="/manufacturers">View All</a></li>
+                        <li><a href="/manufacturers/new">Register A New Manufacturer</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+</body>
+</html>
