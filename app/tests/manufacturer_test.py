@@ -21,3 +21,9 @@ class TestManufacturer(unittest.TestCase):
     def test_manufacturer_is_not_active(self):
         self.manufacturer.make_inactive()
         self.assertEqual(False, self.manufacturer.active)
+
+    def test_manufacturer_reactivate(self):
+        self.manufacturer.make_inactive()
+        self.assertEqual(False, self.manufacturer.active)
+        self.manufacturer.reactivate()
+        self.assertEqual(True, self.manufacturer.active)

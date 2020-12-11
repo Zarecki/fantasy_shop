@@ -8,3 +8,6 @@ class Manufacturer:
 
     def make_inactive(self):
         self.active = False
+
+    def reactivate(self):
+        self.active = True
