@@ -3,4 +3,4 @@ from flask import Blueprint
 from models.manufacturer import Manufacturer
 import repositories.manufacturer_repository as manufacturer_repository
 
-manufacturer_blueprint = Blueprint("manufacturers", __name__)
+manufacturers_blueprint = Blueprint("manufacturers", __name__)
