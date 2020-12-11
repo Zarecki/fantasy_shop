@@ -23,3 +23,26 @@ def select_all():
 
     return items
 
+def select(id):
+    sql = "SELECT * FROM items WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)
+    manufacturer = manufacturer_repository.select(result["manufacturer_id"])
+    item  = Item(result["name"], result["description"], result["category"], result["buy_cost"], result["sell_price"], manufacturer, result["stock"], result["sold_out"], result["id"])
+    return item
+
+def delete_all():
+    sql = "DELETE FROM items"
+    run_sql(sql)
+
+def delete_item(id):
+    sql = "DELETE FROM items WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+def update(item):
+    sql = "UPDATE items SET (name, description, category, buy_cost, sell_price, manufacturer_id, stock, sold_out) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id  = %s"
+    values = [item.name, item.description, item.category, item.buy_cost, item.sell_price, item.manufacturer_id, item.stock, item.sold_out, item.id]
+    run_sql(sql, values)
+
+
