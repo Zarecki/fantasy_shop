@@ -16,7 +16,7 @@ def select_all():
     
     sql = "SELECT * FROM items"
     results = run_sql(sql)
-    for item in results:
+    for result in results:
         manufacturer = manufacturer_repository.select(result["manufacturer_id"])
         item  = Item(result["name"], result["description"], result["category"], result["buy_cost"], result["sell_price"], manufacturer, result["stock"], result["sold_out"], result["id"])
         items.append(item)

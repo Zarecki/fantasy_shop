@@ -14,8 +14,9 @@ def manufacturers():
 # SHOW
 @manufacturers_blueprint.route("/manufacturers/<id>")
 def show_manufacturer(id):
+    items = manufacturer_repository.get_items_by_manufacturer(id)
     manufacturer = manufacturer_repository.select(id)
-    return render_template("manufacturers/show.html", manufacturer=manufacturer)
+    return render_template("manufacturers/show.html", items=items, manufacturer=manufacturer)
 
 # NEW
 @manufacturers_blueprint.route("/manufacturers/new")
