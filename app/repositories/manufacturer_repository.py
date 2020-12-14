@@ -30,6 +30,13 @@ def select(id):
     manufacturer = Manufacturer(result[0][1], result[0][2], result[0][3], result[0][4], result[0][0])
     return manufacturer
 
+def select_by_name(name):
+    sql = "SELECT * FROM manufacturers WHERE name = %s"
+    values = [name]
+    result = run_sql(sql, values)
+    manufacturer = Manufacturer(result[0][1], result[0][2], result[0][3], result[0][4], result[0][0])
+    return manufacturer
+
 def delete_all():
     sql = "DELETE FROM manufacturers"
     run_sql(sql)

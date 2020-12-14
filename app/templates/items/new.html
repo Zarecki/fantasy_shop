@@ -1,6 +1,48 @@
 {% extends "base.html" %}
 {% block content %}
 
-create an empty form for inputting a new item line.
+<h2>Add a new Item</h2>
+
+<form action="/items" method="POST">
+    <div>
+        <label for="name">Item Name:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+    <div>
+    <div>
+        <label for="buy_cost">Buy Cost:</label>
+        <input type="text" id="buy_cost" name="buy_cost">
+    </div>
+    <div>
+        <label for="sell_price">Sell Price:</label>
+        <input type="text" id="sell_price" name="sell_price">
+    </div>
+    <div>
+        <label for="Stock">Stock On Hand:</label>
+        <input type="text" id="stock" name="stock">
+    </div>
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            <option value="Armour">Armour</option>
+            <option value="Gemstones">Gemstones</option>
+            <option value="Weapons">Weapons</option>
+        </select>
+    </div>
+    <div>
+        <label for="manufacturer_name">Manufacturer:</label>
+        <select name="manufacturer_name" id="manufacturer_name">
+            <option value="Lonely Mountain's Lost Halls">Lonely Mountain's Lost Halls</option>
+            <option value="Iron Hills Forge">Iron Hills Forge</option>
+            <option value="Murkwood's Ironbark Armoury">Murkwood's Ironbark Armoury</option>
+            <option value="Nasty Bitza Kit">Nasty Bitza Kit</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
 
 {% endblock %}

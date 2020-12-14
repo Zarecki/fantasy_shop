@@ -1,3 +1,5 @@
+import pdb
+
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.item import Item
@@ -33,8 +35,7 @@ def create_item():
     category = request.form["category"]
     buy_cost = request.form["buy_cost"]
     sell_price = request.form["sell_price"]
-    manufacturer_id = request.form["manufacturer_id"]
-    manufacturer = manufacturer_repository.select(manufacturer_id)
+    manufacturer = manufacturer_repository.select_by_name(request.form["manufacturer_name"])
     stock = request.form["stock"]
     new_item = Item(name, description, category, buy_cost, sell_price, manufacturer, stock)
     item_repository.save(new_item)
