@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div>
+    <p>{{manufacturer.name}}</p>
+    <p>{{manufacturer.description}}</p>
+    <hr>
+    <p>{{manufacturer.category}}</p>
+    <p>{{manufacturer.active}}</p>
+    <hr>
+    <p><a href="/manufacturers/{{manufacturer.id}}/edit">Edit</a></p>
+</div>
+
 Show all the details for an individual item line.
 have a button link to edit.
 extention - add delete button that creates an alert to check before deletion then reroutes to the index.

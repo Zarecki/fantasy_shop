@@ -12,7 +12,7 @@
         </tr>
         {% for manufacturer in manufacturers %}
         <tr>
-            <td><a href="/manufacturers/<id>/show">{{ manufacturer.name }}</a></td>
+            <td><a href="/manufacturers/{{ manufacturer.id }}">{{ manufacturer.name }}</a></td>
             <td>{{ manufacturer.category }}</td>
             <td>{{ manufacturer.active }}</td>
         </tr>

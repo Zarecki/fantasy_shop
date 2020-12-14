@@ -1,4 +1,5 @@
 from db.run_sql import run_sql
+import pdb
 
 from models.manufacturer import Manufacturer
 from models.item import Item
@@ -26,7 +27,7 @@ def select(id):
     sql = "SELECT * FROM manufacturers WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)
-    manufacturer = Manufacturer(result["name"], result["description"], result["category"], result["active"], result["id"])
+    manufacturer = Manufacturer(result[0][1], result[0][2], result[0][3], result[0][4], result[0][0])
     return manufacturer
 
 def delete_all():
