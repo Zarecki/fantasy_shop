@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Add a new Manufacturer</h2>
+
+<form action="/manufacturers" method="POST">
+    <div>
+        <label for="manufacturer">Manufacturer:</label>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+    <div>
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            <option value="Armour">Armour</option>
+            <option value="Gemstones">Gemstones</option>
+            <option value="Weapons">Weapons</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+
 create an empty form for inputting a new manufacturer line.
 
 {% endblock %}
