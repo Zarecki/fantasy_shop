@@ -11,7 +11,9 @@
     <hr>
     <p>Category: {{ item.category }}</p>
     <p><a href="/manufacturers/{{ item.manufacturer.id }}">Manufacturer: {{ item.manufacturer.name }}</a></p>
-    <p>Sold Out? {{ item.sold_out }}</p>
+    {% if item.sold_out == True %}
+        <p class="sold_out">Sold Out!</p>
+    {% endif %}
     <hr>
     <p><a href="/items/{{item.id}}/edit">Edit</a></p>
 </div>

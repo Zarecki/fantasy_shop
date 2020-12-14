@@ -14,7 +14,11 @@
         <tr>
             <td><a href="/manufacturers/{{ manufacturer.id }}">{{ manufacturer.name }}</a></td>
             <td>{{ manufacturer.category }}</td>
-            <td>{{ manufacturer.active }}</td>
+            {% if manufacturer.active == False %}
+                <td class="inactive">Inactive!</td>
+            {% else %}
+                <td class="active">Active</td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>

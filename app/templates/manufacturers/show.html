@@ -6,7 +6,11 @@
     <p>Description: {{manufacturer.description}}</p>
     <hr>
     <p>Category: {{manufacturer.category}}</p>
-    <p>Active? {{manufacturer.active}}</p>
+    {% if manufacturer.active == False %}
+        <p class="inactive">Inactive!</p>
+    {% else %}
+        <p class="active">Active</p>
+    {% endif %}
     <hr>
     <p><a href="/manufacturers/{{manufacturer.id}}/edit">Edit</a></p>
 </div>

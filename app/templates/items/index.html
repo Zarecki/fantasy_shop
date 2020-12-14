@@ -15,7 +15,11 @@
         <tr>
             <td><a href="/items/{{ item.id }}">{{ item.name }}</a></td>
             <td>{{ item.category }}</td>
-            <td>{{ item.stock }}</td>
+            {% if item.sold_out == True %}
+                <td class="sold_out">Sold Out!</td>
+            {% else %}
+                <td>{{ item.stock }}</td>
+            {% endif %}
             <td>{{ item.manufacturer.name }}</td>
         </tr>
         {% endfor %}
