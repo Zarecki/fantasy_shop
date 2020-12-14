@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.manufacturer import Manufacturer
 import repositories.manufacturer_repository as manufacturer_repository
+import pdb
 
 manufacturers_blueprint = Blueprint("manufacturers", __name__)
 
@@ -31,6 +32,7 @@ def create_manufacturer():
     description = request.form["description"]
     category = request.form["category"]
     new_manufacturer = Manufacturer(name, description, category)
+    new_manufacturer.activate()
     manufacturer_repository.save(new_manufacturer)
     return redirect("/manufacturers")
 
@@ -47,7 +49,11 @@ def update_manufacturer(id):
     description = request.form["description"]
     category = request.form["category"]
     active = request.form["active"]
-    new_manufacturer = Manufacturer(name, description, category, active, id)
+    # pdb.set_trace()
+    new_manufacturer = Manufacturer(name, description, category, active)
+    if request.form["active"] == False:
+        new_manufacturer.make_inactive()
+    new_manufacturer.id = id
     manufacturer_repository.update(new_manufacturer)
     return redirect("/manufacturers")
 

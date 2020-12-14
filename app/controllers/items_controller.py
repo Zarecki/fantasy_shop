@@ -38,6 +38,7 @@ def create_item():
     manufacturer = manufacturer_repository.select_by_name(request.form["manufacturer_name"])
     stock = request.form["stock"]
     new_item = Item(name, description, category, buy_cost, sell_price, manufacturer, stock)
+    new_item.stock_checks()
     item_repository.save(new_item)
     return redirect("/items")
 
@@ -61,6 +62,7 @@ def update_item(id):
     stock = request.form["stock"]
     item = Item(name, description, category, buy_cost, sell_price, manufacturer, stock)
     item.id = id
+    item.stock_checks()
     # pdb.set_trace()
     item_repository.update(item)
     return redirect("/items")

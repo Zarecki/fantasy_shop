@@ -13,14 +13,12 @@ class Item:
 
     def check_has_low_stock(self):
         if self.stock <= 5:
-            low_stock_result = True
-        
-        return low_stock_result
+            self.low_stock = True
 
     def check_has_sold_out(self):
-        sold_out_result = self.sold_out
+        if self.stock == 0:
+            self.sold_out = True
 
-        if self.stock > 0:
-            sold_out_result = True
-
-        return sold_out_result
+    def stock_checks(self):
+        self.check_has_low_stock()
+        self.check_has_sold_out()
