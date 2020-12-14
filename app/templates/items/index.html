@@ -1,6 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Items</h2>
+
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Manufacturer</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td><a href="/items/{{ item.id }}">{{ item.name }}</a></td>
+            <td>{{ item.category }}</td>
+            <td>{{ item.stock }}</td>
+            <td>{{ item.manufacturer.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
 show a list of all item lines. make a nice table. show name, category, manufacturer.
 have a select of category for filtering? perhaps a new folder for index with the generic index and an index which takes a the select as an input for for/if?
 

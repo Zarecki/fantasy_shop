@@ -2,11 +2,11 @@
 {% block content %}
 
 <div>
-    <p>{{manufacturer.name}}</p>
-    <p>{{manufacturer.description}}</p>
+    <p>{Manufacturer Name: {manufacturer.name}}</p>
+    <p>Description: {{manufacturer.description}}</p>
     <hr>
-    <p>{{manufacturer.category}}</p>
-    <p>{{manufacturer.active}}</p>
+    <p>Category: {{manufacturer.category}}</p>
+    <p>Active? {{manufacturer.active}}</p>
     <hr>
     <p><a href="/manufacturers/{{manufacturer.id}}/edit">Edit</a></p>
 </div>
