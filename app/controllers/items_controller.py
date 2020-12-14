@@ -56,10 +56,12 @@ def update_item(id):
     category = request.form["category"]
     buy_cost = request.form["buy_cost"]
     sell_price = request.form["sell_price"]
-    manufacturer_id = request.form["manufacturer_id"]
-    manufacturer = manufacturer_repository.select(manufacturer_id)
+    manufacturer = manufacturer_repository.select_by_name(request.form["manufacturer_name"])
+    # manufacturer_id = manufacturer.id
     stock = request.form["stock"]
-    item = Item(name, description, category, buy_cost, sell_price, manufacturer, stock, id)
+    item = Item(name, description, category, buy_cost, sell_price, manufacturer, stock)
+    item.id = id
+    # pdb.set_trace()
     item_repository.update(item)
     return redirect("/items")
 

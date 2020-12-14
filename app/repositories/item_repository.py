@@ -42,8 +42,8 @@ def delete_item(id):
     run_sql(sql, values)
 
 def update(item):
-    sql = "UPDATE items SET (name, description, category, buy_cost, sell_price, manufacturer_id, stock, sold_out) = (%s, %s, %s, %s, %s, %s, %s, %s) WHERE id  = %s"
-    values = [item.name, item.description, item.category, item.buy_cost, item.sell_price, item.manufacturer_id, item.stock, item.sold_out, item.id]
+    sql = "UPDATE items SET (name, description, category, buy_cost, sell_price, manufacturer_id, stock) = (%s, %s, %s, %s, %s, %s, %s) WHERE id  = %s"
+    values = [item.name, item.description, item.category, item.buy_cost, item.sell_price, item.manufacturer.id, item.stock, item.id]
     run_sql(sql, values)
 
 
