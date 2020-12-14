@@ -1,6 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Update a Manufacturer</h2>
+
+<form action="/manufacturers/{{ manufacturer.id }}" method="POST">
+    <div>
+        <label for="name">Manufacturer:</label>
+        <input type="text" id="name" name="name" value="{{ manufacturer.name }}">
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{ manufacturer.description }}">
+    <div>
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            <option value="Armour">Armour</option>
+            <option value="Gemstones">Gemstones</option>
+            <option value="Weapons">Weapons</option>
+        </select>
+    </div>
+    <div>
+        <label for="active">Active?</label>
+        <select name="active" id=active">
+            <option value=True>Active</option>
+            <option value=False>Inactive</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+    </div>
+</form>
+
 create a form for updating manufacturer's entry. have a select for category. pre-populate with the current manufacturer info.
 
 {% endblock %}
