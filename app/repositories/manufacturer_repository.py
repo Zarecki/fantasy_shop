@@ -4,11 +4,12 @@ from models.manufacturer import Manufacturer
 from models.item import Item
 
 def save(manufacturer):
-    sql = "INSERT INTO manufacturer (name, description, category) VALUES (%s, %s, %s)"
+    sql = "INSERT INTO manufacturers (name, description, category) VALUES (%s, %s, %s) RETURNING *"
     values = [manufacturer.name, manufacturer.description, manufacturer.category]
     results = run_sql(sql, values)
     id = results[0]['id']
     manufacturer.id = id
+    return manufacturer
 
 def select_all():
     manufacturers = []

@@ -10,20 +10,20 @@ items_blueprint = Blueprint("items", __name__)
 # INDEX
 @items_blueprint.route("/items")
 def items():
-    items = item_respository.select_all()
-    return render_template("items/index.html", items=items)
+    items = item_repository.select_all()
+    return render_template("/items/index.html", items=items)
 
 # SHOW
 @items_blueprint.route("/items/<id>")
 def show_item(id):
     item = item_repository.select(id)
-    return render_template("items/show.html", item=item)
+    return render_template("/items/show.html", item=item)
 
 # NEW
 @items_blueprint.route("/items/new")
 def new_item():
     manufacturers = manufacturer_repository.select_all()
-    return render_template("items/new.html", manufacturers=manufacturers)
+    return render_template("/items/new.html", manufacturers=manufacturers)
 
 # CREATE
 @items_blueprint.route("/items", methods=["POST"])
@@ -45,7 +45,7 @@ def create_item():
 def edit_item(id):
     item = item_repository.select(id)
     manufacturers = manufacturer_repository.select_all()
-    return render_template("items/edit.html", item=item, manufacturers=manufacturers)
+    return render_template("/items/edit.html", item=item, manufacturers=manufacturers)
 
 # UPDATE
 @items_blueprint.route("/items/<id>", methods=["POST"])
@@ -63,7 +63,7 @@ def update_item(id):
     return redirect("/items")
 
 # DELETE
-@items_blueprint.route("items/<id>/delete")
+@items_blueprint.route("/items/<id>/delete")
 def delete_item(id):
     item_repository.delete(id)
     return redirect("/items")

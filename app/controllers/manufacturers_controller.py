@@ -8,21 +8,21 @@ manufacturers_blueprint = Blueprint("manufacturers", __name__)
 # INDEX
 @manufacturers_blueprint.route("/manufacturers")
 def manufacturers():
-    manufacturers = manufacturer_respository.select_all()
-    return render_template("manufacturers/index.html", manufacturers=manufacturers)
+    manufacturers = manufacturer_repository.select_all()
+    return render_template("/manufacturers/index.html", manufacturers=manufacturers)
 
 # SHOW
 @manufacturers_blueprint.route("/manufacturers/<id>")
 def show_manufacturer(id):
     items = manufacturer_repository.get_items_by_manufacturer(id)
     manufacturer = manufacturer_repository.select(id)
-    return render_template("manufacturers/show.html", items=items, manufacturer=manufacturer)
+    return render_template("/manufacturers/show.html", items=items, manufacturer=manufacturer)
 
 # NEW
 @manufacturers_blueprint.route("/manufacturers/new")
 def new_manufacturer():
     manufacturers = manufacturer_repository.select_all()
-    return render_template("manufacturers/new.html", manufacturers=manufacturers)
+    return render_template("/manufacturers/new.html", manufacturers=manufacturers)
 
 # CREATE
 @manufacturers_blueprint.route("/manufacturers", methods=["POST"])
@@ -51,7 +51,7 @@ def update_manufacturer(id):
     return redirect("/manufacturers")
 
 # DELETE
-@manufacturers_blueprint.route("manufacturers/<id>/delete")
+@manufacturers_blueprint.route("/manufacturers/<id>/delete")
 def delete_manufacturer(id):
     manufacturer_repository.delete(id)
     return redirect("/manufacturers")

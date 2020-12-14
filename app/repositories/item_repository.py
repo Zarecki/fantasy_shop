@@ -5,11 +5,12 @@ from models.manufacturer import Manufacturer
 import repositories.manufacturer_repository as manufacturer_repository
 
 def save(item):
-    sql = "INSERT INTO items (name, description, category, buy_cost, sell_price, manufacturer_id, stock, sold_out) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+    sql = "INSERT INTO items (name, description, category, buy_cost, sell_price, manufacturer_id, stock, sold_out) VALUES (%s, %s, %s, %s, %s, %s, %s, %s) RETURNING *"
     values = [item.name, item.description, item.category, item.buy_cost, item.sell_price, item.manufacturer.id, item.stock, item.sold_out]
     results = run_sql(sql, values)
     id = results[0]['id']
     item.id = id
+    return item
 
 def select_all():
     items = []
