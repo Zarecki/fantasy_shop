@@ -19,5 +19,6 @@ CREATE TABLE items (
     sell_price INT,
     manufacturer_id INT REFERENCES manufacturers(id),
     stock INT,
-    sold_out BOOLEAN
+    sold_out BOOLEAN,
+    low_stock BOOLEAN
 );

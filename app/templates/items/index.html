@@ -17,6 +17,8 @@
             <td>{{ item.category }}</td>
             {% if item.sold_out == True %}
                 <td class="sold_out">Sold Out!</td>
+            {% elif item.low_stock == True %}
+                <td class="low_stock">Low Stock!</td>
             {% else %}
                 <td>{{ item.stock }}</td>
             {% endif %}
