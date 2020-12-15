@@ -17,7 +17,7 @@ CREATE TABLE items (
     category VARCHAR(255),
     buy_cost INT,
     sell_price INT,
-    manufacturer_id INT REFERENCES manufacturers(id),
+    manufacturer_id INT REFERENCES manufacturers(id) ON DELETE CASCADE,
     stock INT,
     sold_out BOOLEAN,
     low_stock BOOLEAN
