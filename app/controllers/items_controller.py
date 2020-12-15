@@ -19,6 +19,7 @@ def items():
 @items_blueprint.route("/items/<id>")
 def show_item(id):
     item = item_repository.select(id)
+    # pdb.set_trace()
     return render_template("/items/show.html", item=item)
 
 # NEW
@@ -68,7 +69,8 @@ def update_item(id):
     return redirect("/items")
 
 # DELETE
-@items_blueprint.route("/items/<id>/delete")
+@items_blueprint.route("/items/<id>/delete", methods=["POST"])
 def delete_item(id):
-    item_repository.delete(id)
+    # pdb.set_trace()
+    item_repository.delete_item(id)
     return redirect("/items")

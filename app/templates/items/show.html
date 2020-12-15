@@ -10,14 +10,23 @@
     <p>Stock On Hand: {{item.stock}}</p>
     <hr>
     <p>Category: {{ item.category }}</p>
-    <p><a href="/manufacturers/{{ item.manufacturer.id }}">Manufacturer: {{ item.manufacturer.name }}</a></p>
+    <p>Manufacturer: <a href="/manufacturers/{{ item.manufacturer.id }}">{{ item.manufacturer.name }}</a></p>
     {% if item.sold_out == True %}
         <p class="sold_out">Sold Out!</p>
     {% elif item.low_stock == True %}
         <p class="low_stock">Low Stock!</p>
     {% endif %}
     <hr>
-    <p><a href="/items/{{item.id}}/edit">Edit</a></p>
+    <p>{{item.id}}</p>
+    <p>{{item.name}}</p>
+    <form action="/items/{{ item.id }}/edit">
+        <input type="submit" value="edit">
+    </form>
+    <form action="/items/{{ item.id }}/delete" method="POST">
+        <input type="submit" value="delete" data-confirm="Are you sure to delete this Manufacturer?">
+    </form>
+    <!-- <p><a href="/items/{{ item.id }}/edit", class="edit">Edit</a></p> -->
+    <!-- <p><a href="/items/{{ item.id }}/delete" class="delete" data-confirm="Are you sure to delete this item?">Delete</a></p> -->
 </div>
 
 Show all the details for an individual item line.

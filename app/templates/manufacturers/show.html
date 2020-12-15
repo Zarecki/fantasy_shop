@@ -12,7 +12,36 @@
         <p class="active">Active</p>
     {% endif %}
     <hr>
-    <p><a href="/manufacturers/{{manufacturer.id}}/edit">Edit</a></p>
+    <form action="/items/{{ manufacturer.id }}/edit">
+        <input type="submit" value="edit">
+    </form>
+    <form action="/items/{{ manufacturer.id }}/delete" method="POST">
+        <input type="submit" value="delete" data-confirm="Are you sure to delete this Manufacturer?">
+    </form>
+</div>
+<hr>
+<div>
+    <p>Stocked Items By This Manufacturer:</p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Stock</th>
+        </tr>
+        {% for item in items %}
+        <tr>
+            <td><a href="/items/{{ item.id }}">{{ item.name }}</a></td>
+            <td>{{ item.category }}</td>
+            {% if item.sold_out == True %}
+                <td class="sold_out">Sold Out!</td>
+            {% elif item.low_stock == True %}
+                <td class="low_stock">Low Stock!</td>
+            {% else %}
+                <td>{{ item.stock }}</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
 </div>
 
 Show all the details for an individual item line.

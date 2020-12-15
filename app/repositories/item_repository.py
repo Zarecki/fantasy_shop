@@ -31,8 +31,9 @@ def select(id):
     sql = "SELECT * FROM items WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)
+    # pdb.set_trace()
     manufacturer = manufacturer_repository.select(result[0][6])
-    item  = Item(result[0][1], result[0][2], result[0][3], result[0][4], result[0][5], manufacturer, result[0][7], result[0][8], result[0][0])
+    item  = Item(result[0][1], result[0][2], result[0][3], result[0][4], result[0][5], manufacturer, result[0][7], result[0][8], result[0][9], result[0][0])
     item.stock_checks()
     return item
 
