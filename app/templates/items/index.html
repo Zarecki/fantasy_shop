@@ -2,7 +2,18 @@
 {% block content %}
 
 <h2>Items</h2>
-
+<div>
+    <form action="/items/category" method="POST">
+        <label for="category">Filter by category:</label>
+        <select name="category" id="category">
+            <option value="" disabled selected>-- Select a category --</option>
+            <option value="Armour">Armour</option>
+            <option value="Gemstones">Gemstones</option>
+            <option value="Weapons">Weapons</option>
+        </select>
+        <input type="submit">
+    </form>
+</div>
 <div>
     <table>
         <tr>
@@ -28,10 +39,7 @@
     </table>
 </div>
 <div>
-    
-</div>
 
-show a list of all item lines. make a nice table. show name, category, manufacturer.
-have a select of category for filtering? perhaps a new folder for index with the generic index and an index which takes a the select as an input for for/if?
+</div>
 
 {% endblock %}

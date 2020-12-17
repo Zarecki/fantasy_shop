@@ -62,3 +62,11 @@ def update_manufacturer(id):
 def delete_manufacturer(id):
     manufacturer_repository.delete(id)
     return redirect("/manufacturers")
+
+# GET ITEMS BY FILTER
+@manufacturers_blueprint.route("/manufacturers/category", methods=["POST"])
+def find_by_filter():
+    form_data = request.form.to_dict()
+    selected_filter = form_data["category"]
+    manufacturers = manufacturer_repository.get_by_category(selected_filter)
+    return render_template("/manufacturers/index.html", manufacturers=manufacturers)

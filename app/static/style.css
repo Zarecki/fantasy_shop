@@ -1,0 +1,90 @@
+body {
+    /* background-color: pink; */
+    background: url('images/lonely_mountain.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0px;
+    margin: 0px;
+    font-family: Langar, sans-serif;
+    color: rgba(255, 217, 0, 0.881);
+}
+
+a {
+    text-decoration: none;
+    color: rgba(255, 217, 0, 0.881);
+}
+
+footer, table, form {
+    border: 2px solid;
+    border-color: rgba(255, 217, 0, 0.881);
+
+}
+
+#navbar {
+    display: flex;
+    flex-flow: row;
+}
+
+#manufacturer {
+    border: 1px solid;
+    border-color: rgba(255, 217, 0, 0.881);
+    grid-area: manufacturer;
+
+}
+
+#items {
+    border: 1px solid;
+    border-color: rgba(255, 217, 0, 0.881);
+    grid-area: items;
+
+}
+
+#total_count {
+    border: 1px solid;
+    border-color: rgba(255, 217, 0, 0.881);
+    grid-area: total;
+
+}
+
+#profits {
+    border: 1px solid;
+    border-color: rgba(255, 217, 0, 0.881);
+    grid-area: profits;
+
+}
+
+#grid_container {
+    display: grid;
+    grid-template-areas: 
+    'manufacturer items'
+    'total profits' ;
+}
+
+.sold_out {
+    color: red;
+}
+
+.low_stock {
+    color:whitesmoke;
+}
+
+.inactive {
+    color: red;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color: lightgray;
+}
+
+tr:nth-child(odd) {
+    background-color: darkgray;
+}
+
+th {
+    background-color: firebrick;
+}

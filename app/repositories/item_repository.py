@@ -51,4 +51,16 @@ def update(item):
     values = [item.name, item.description, item.category, item.buy_cost, item.sell_price, item.manufacturer.id, item.stock, item.id]
     run_sql(sql, values)
 
+def get_by_category(selected_filter):
+    items = []
 
+    sql = "SELECT * FROM items WHERE category = %s"
+    values = [selected_filter]
+    results = run_sql(sql, values)
+    for result in results:
+        manufacturer = manufacturer_repository.select(result["manufacturer_id"])
+        item  = Item(result["name"], result["description"], result["category"], result["buy_cost"], result["sell_price"], manufacturer, result["stock"], result["sold_out"], result["low_stock"], result["id"])
+        item.stock_checks()
+        items.append(item)
+
+    return items

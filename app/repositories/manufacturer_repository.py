@@ -62,3 +62,15 @@ def get_items_by_manufacturer(id):
         product_line.append(item)
 
     return product_line
+
+def get_by_category(selected_filter):
+    manufacturers = []
+
+    sql = "SELECT * FROM manufacturers WHERE category = %s"
+    values = [selected_filter]
+    results = run_sql(sql, values)
+    for result in results:
+        manufacturer = Manufacturer(result["name"], result["description"], result["category"], result["active"], result["id"])
+        manufacturers.append(manufacturer)
+
+    return manufacturers

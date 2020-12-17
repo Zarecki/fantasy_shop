@@ -12,11 +12,11 @@ class Item:
         self.id = id
 
     def check_has_low_stock(self):
-        if self.stock <= 5:
+        if int(self.stock) <= 5:
             self.low_stock = True
 
     def check_has_sold_out(self):
-        if self.stock == 0:
+        if int(self.stock) == 0:
             self.sold_out = True
 
     def stock_checks(self):

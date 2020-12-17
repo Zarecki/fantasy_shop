@@ -19,7 +19,6 @@ def items():
 @items_blueprint.route("/items/<id>")
 def show_item(id):
     item = item_repository.select(id)
-    # pdb.set_trace()
     return render_template("/items/show.html", item=item)
 
 # NEW
@@ -61,7 +60,7 @@ def update_item(id):
     manufacturer = manufacturer_repository.select_by_name(request.form["manufacturer_name"])
     # manufacturer_id = manufacturer.id
     stock = request.form["stock"]
-    item = Item(name, description, category, buy_cost, sell_price, manufacturer, stock)
+    item = Item(name, description, category, buy_cost, sell_price, manufacturer, int(stock))
     item.id = id
     item.stock_checks()
     # pdb.set_trace()
@@ -74,3 +73,11 @@ def delete_item(id):
     # pdb.set_trace()
     item_repository.delete_item(id)
     return redirect("/items")
+
+# GET ITEMS BY FILTER
+@items_blueprint.route("/items/category", methods=["POST"])
+def find_by_filter():
+    form_data = request.form.to_dict()
+    selected_filter = form_data["category"]
+    items = item_repository.get_by_category(selected_filter)
+    return render_template("/items/index.html", items=items)

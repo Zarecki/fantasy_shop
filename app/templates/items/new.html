@@ -36,10 +36,9 @@
         <label for="manufacturer_name">Manufacturer:</label>
         <select name="manufacturer_name" id="manufacturer_name">
             <option value="" disabled selected>-- Select a Manufacturer --</option>
-            <option value="Lonely Mountain's Lost Halls">Lonely Mountain's Lost Halls</option>
-            <option value="Iron Hills Forge">Iron Hills Forge</option>
-            <option value="Murkwood's Ironbark Armoury">Murkwood's Ironbark Armoury</option>
-            <option value="Nasty Bitza Kit">Nasty Bitza Kit</option>
+            {% for manufacturer in manufacturers %}
+            <option value="{{ manufacturer.name }}"">{{ manufacturer.name }}</option>
+            {% endfor %}
         </select>
     </div>
     <div>
